@@ -16,10 +16,10 @@ void restart_piece(piece *active, piece *start){
     (active->cube)[i].y = (start->cube)[i].y;
   }
 }
-void move(piece *piece, int *map[20][10]){
+void move(piece *piece, int map[20][10]){
   bool flag = false;
   for(int i = 0; i < 4; i++){
-    if(*(mapa[(piece->cube[i]).y][(piece->cube[i]).x + piece->vel]) || (piece->cube[i]).x + piece->vel < 1 || (piece->cube[i]).x + piece->vel > 18){
+    if(map[(piece->cube[i]).y][(piece->cube[i]).x + piece->vel]) || (piece->cube[i]).x + piece->vel < 1 || (piece->cube[i]).x + piece->vel > 18){
       flag = true;
       break;
     }
@@ -72,7 +72,7 @@ int main(){
       if(IsKeyDown(KEY_LEFT)){
         piece.vel = 1;
       }
-      move(&piece, &map);
+      move(&piece, map);
       
 
 
