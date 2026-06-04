@@ -50,7 +50,7 @@ int main(){
   bool gamewin = false;
   bool gameover = false;
   while(!WindowsShouldClose()){
-    while(!gamewin && !gameover){
+    if(!gamewin && !gameover){
       count += 1;
       for(int i = 0; i < 4; i++){
         if(mapa[piece.cube[i].y + 1][piece.cube[i].x]){
